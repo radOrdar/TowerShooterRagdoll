@@ -17,7 +17,7 @@ namespace Infrastructure.States
 
         public void Enter()
         {
-            Debug.Log("privet");
+           
         }
     }
 }

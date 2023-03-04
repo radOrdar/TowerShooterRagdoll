@@ -15,6 +15,6 @@ MonoBehaviour:
   MonsterTypeId: 0
   Hp: 50
   Damage: 10
-  MoveSpeed: 0
-  EffectiveDistance: 0
-  Prefab: {fileID: 0}
+  MoveSpeed: 0.1
+  EffectiveDistance: 1.5
+  Prefab: {fileID: 3144396102280690689, guid: 097f1e73c7bfb0f43b91e14c1cde6bd8, type: 3}

@@ -13,7 +13,7 @@ namespace Infrastructure.States
 {
     public class LoadLevelState : IPayloadedState<string>
     {
-        private const string InitialPointTag = "InitialPoint";
+        private const string PlayerSpawnPointTag = "InitialPoint";
 
         private readonly GameStateMachine _stateMachine;
         private readonly SceneLoader _sceneLoader;
@@ -57,9 +57,7 @@ namespace Infrastructure.States
         private void InitGameWorld()
         {
             InitSpawners();
-            // _gameFactory.CreateHero(GameObject.FindWithTag(InitialPointTag));
-            // InitHud(hero);
-            // CameraFollow(hero);
+            _gameFactory.CreateHero(GameObject.FindWithTag(PlayerSpawnPointTag));
         }
 
         private void InitSpawners()
@@ -69,7 +67,7 @@ namespace Infrastructure.States
 
             foreach (EnemySpawnerStaticData spawnerData in levelData.EnemySpawners)
             {
-                // _gameFactory.CreateSpawner(spawnerData.Id, spawnerData.Position, spawnerData.MonsterTypeId);
+                _gameFactory.CreateSpawner(spawnerData.Id, spawnerData.Position, spawnerData.MonsterTypeId);
             }
         }
 

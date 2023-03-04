@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace StateMachineBehaviours
+namespace Hero
 {
     public class ShootStateMachineReporter : StateMachineBehaviour
     {

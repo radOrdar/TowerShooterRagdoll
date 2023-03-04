@@ -1,5 +1,8 @@
-public interface IShootStateReader
+namespace Hero
 {
-    void EnteredState();
-    void ExitedState();
+    public interface IShootStateReader
+    {
+        void EnteredState();
+        void ExitedState();
+    }
 }

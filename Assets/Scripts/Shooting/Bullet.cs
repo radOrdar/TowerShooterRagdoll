@@ -50,7 +50,6 @@ namespace Shooting
         {
             if (other.TryGetComponent(out ShotTarget shotTarget))
             {
-                Debug.Log("shotTarget");
                 _message.impactPoint = transform.position;
                 shotTarget.TakeShot(_message);
                 Instantiate(impactFx, transform.position, Quaternion.LookRotation(-transform.forward));

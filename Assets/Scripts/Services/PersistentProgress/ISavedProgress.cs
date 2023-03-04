@@ -2,7 +2,7 @@
 
 namespace Services.PersistentProgress
 {
-    public interface ISavedProgress : IPersistentProgressService
+    public interface ISavedProgress : ISavedProgressReader
     {
         void UpdateProgress(PlayerProgress progress);
     }

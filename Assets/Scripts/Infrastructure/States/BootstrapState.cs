@@ -9,14 +9,12 @@ using Services.SaveLoad;
 using Services.StaticData;
 using UI.Services.Factory;
 using UI.Services.Windows;
-using UnityEngine;
 
 namespace Infrastructure.States
 {
     public class BootstrapState : IState
     {
         private const string Initial = "Initial";
-        private const string AudioServicePrefabPath = "Static Data/Audio/AudioService";
         private readonly GameStateMachine _stateMachine;
         private readonly SceneLoader _sceneLoader;
         private readonly AllServices _services;
@@ -52,7 +50,7 @@ namespace Infrastructure.States
             _services.RegisterSingle<IUIFactory>(new UIFactory(_services.Single<IAssetProvider>(),
                 _services.Single<IStaticDataService>(), _services.Single<IPersistentProgressService>()));
             _services.RegisterSingle<IWindowService>(new WindowService(_services.Single<IUIFactory>()));
-            _services.RegisterSingle<IGameFactory>(new GameFactory());
+            _services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAssetProvider>(), _services.Single<IStaticDataService>()));
 
             _services.RegisterSingle<ISaveLoadService>(new SaveLoadService(_services.Single<IPersistentProgressService>(),
                 _services.Single<IGameFactory>()));
@@ -67,7 +65,7 @@ namespace Infrastructure.States
 
         private void RegisterAudioService()
         {
-            AudioService audioService = _services.Single<IAssetProvider>().Instantiate(AudioServicePrefabPath).GetComponent<AudioService>();
+            AudioService audioService = _services.Single<IAssetProvider>().Instantiate(AssetPath.AudioService).GetComponent<AudioService>();
             audioService.Construct(_services.Single<IRandomService>(), _services.Single<IStaticDataService>());
             _services.RegisterSingle<IAudioService>(audioService);
         }

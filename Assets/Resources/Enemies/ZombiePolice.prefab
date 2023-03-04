@@ -1123,7 +1123,7 @@ GameObject:
   - component: {fileID: 2837912396021850130}
   - component: {fileID: 2907807033675880793}
   m_Layer: 0
-  m_Name: copzombie_l_actisdato
+  m_Name: ZombiePolice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1181,7 +1181,7 @@ Animator:
   m_GameObject: {fileID: 3144396102280690689}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: aff1530f064015343894cec3c19ca9af, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6bab7b5b99970df4d9c05f5ced4c8472, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1216,7 +1216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkTargetPeriod: 0.2
-  target: {fileID: 0}
+  _heroTarget: {fileID: 0}
 --- !u!1 &3160313544686685711
 GameObject:
   m_ObjectHideFlags: 0

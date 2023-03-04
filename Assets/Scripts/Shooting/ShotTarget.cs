@@ -10,7 +10,6 @@ namespace Shooting
 
         public void TakeShot(ShotMessage shotMessage)
         {
-            Debug.Log("TakeShot");
             shotMessage.shotTarget = this;
             OnShot(shotMessage);
         }

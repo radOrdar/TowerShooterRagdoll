@@ -13,4 +13,19 @@ MonoBehaviour:
   m_Name: LevelData
   m_EditorClassIdentifier: 
   LevelKey: Main
-  EnemySpawners: []
+  EnemySpawners:
+  - Id: Main_20a9ab7f-ce2b-420b-b6ff-2b9ac765bfc8
+    MonsterTypeId: 0
+    Position: {x: -6.829, y: 0.86, z: 1.1589999}
+  - Id: 
+    MonsterTypeId: 0
+    Position: {x: -7.2590003, y: 0.86, z: 2.9859998}
+  - Id: Main_50973c23-6e92-4c50-a6ee-bf7a162c020b
+    MonsterTypeId: 0
+    Position: {x: -4.2799997, y: 0.86, z: 2.61}
+  - Id: Main_c5922137-4a07-448d-805c-5f89b4a711cc
+    MonsterTypeId: 0
+    Position: {x: -2.8, y: 0.86, z: 1.2799997}
+  - Id: Main_330d53cf-b96d-49b3-914f-614d3eda7844
+    MonsterTypeId: 0
+    Position: {x: -5.07, y: 1.14, z: 4.11}

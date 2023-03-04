@@ -1,17 +1,21 @@
+using Hero;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+namespace Enemy
 {
-    public HeroController player;
-    public Enemy[] enemies;
-
-    private void Start()
+    public class EnemySpawner : MonoBehaviour
     {
-        player = FindObjectOfType<HeroController>();
-        enemies = FindObjectsOfType<Enemy>();
-        foreach (var enemy in enemies)
+        public HeroController player;
+        public Enemy[] enemies;
+
+        private void Start()
         {
-            enemy.target = player;
+            player = FindObjectOfType<HeroController>();
+            enemies = FindObjectsOfType<Enemy>();
+            foreach (var enemy in enemies)
+            {
+               
+            }
         }
     }
 }
