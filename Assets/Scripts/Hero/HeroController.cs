@@ -1,3 +1,5 @@
+using Services;
+using Services.Input;
 using UnityEngine;
 
 namespace Hero
@@ -5,14 +7,12 @@ namespace Hero
     [RequireComponent(typeof(HeroMove), typeof(HeroAnimator), typeof(HeroAttack))]
     public class HeroController : MonoBehaviour, IShootStateReader
     {
-   
-
         private HeroMove _heroMove;
         private HeroAnimator _heroAnimator;
         private HeroAttack _heroAttack;
     
         private Camera _mainCamera;
-
+        private IInputService _inputService;
 
         private LayerMask _groundLayerMask;
         private LayerMask _ragdollLayerMask;
@@ -22,6 +22,7 @@ namespace Hero
 
         private void Awake()
         {
+            _inputService = AllServices.Container.Single<IInputService>();
             _heroMove = GetComponent<HeroMove>();
             _heroAnimator = GetComponent<HeroAnimator>();
             _heroAttack = GetComponent<HeroAttack>();
@@ -37,9 +38,9 @@ namespace Hero
         // Update is called once per frame
         void Update()
         {
-            Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
+            Ray ray = _mainCamera.ScreenPointToRay(_inputService.mousePosition);
 
-            if (Input.GetMouseButtonDown(1))
+            if (_inputService.GetMouseButtonDown(1))
             {
                 if (Physics.Raycast(ray, out RaycastHit hit, 1000f, _groundLayerMask))
                 {
@@ -59,10 +60,10 @@ namespace Hero
                     _heroAttack.UpdateBodyAndGunRotation(hitGround.point);
                 }
             
-                if (Input.GetMouseButtonDown(0))
+                if (_inputService.GetMouseButtonDown(0))
                 {
                     _heroAnimator.ShotOnce(); 
-                } else if (Input.GetMouseButton(0))
+                } else if (_inputService.GetMouseButton(0))
                 {
                     _heroAnimator.ToggleShotLoop(true);
                 } else
